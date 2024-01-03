@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_option_tree" model="ir.ui.view">
+        <field name="name">am.option.tree</field>
+        <field name="model">am.option</field>
+        <field name="arch" type="xml">
+            <tree string="Opties" editable="bottom">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_option" model="ir.actions.act_window">
+        <field name="name">Options</field>
+        <field name="res_model">am.option</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem
+        id="menu_assets_options"
+        name="Opties"
+        sequence="55"
+        action="action_option"
+        groups="group_asset_user"
+        parent="menu_assets_config"
+    />
+</odoo>

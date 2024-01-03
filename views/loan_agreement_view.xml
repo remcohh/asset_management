@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_loan_agreement_form" model="ir.ui.view">
+        <field name="name">loan_agreement.form</field>
+        <field name="model">am.loan_agreement</field>
+        <field name="arch" type="xml">
+            <form string="Category">
+                <sheet>
+                    <div>
+                        <h2>Bruikleen overeenkomst</h2>
+                    </div>
+                    <group>
+                        <field name="employee_id" />
+                        <field name="date" />
+                    </group>
+                    <notebook>
+                        <page string="Apparaten">
+                            <field name="loan_agreement_lines">
+                                <tree create="false" edit="false">
+                                    <field name="asset_id" />
+                                    <field name="serial"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <field name="remarks" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_loan_agreement_tree" model="ir.ui.view">
+        <field name="name">loan_agreement.tree</field>
+        <field name="model">am.loan_agreement</field>
+        <field name="arch" type="xml">
+            <tree string="loan_agreement">
+                <field name="employee_id" />
+                <field name="date" />
+                <field name="loan_agreement_lines" widget='many2many_tags' />
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_loan_agreement_search" model="ir.ui.view">
+        <field name="name">loan_agreement.search</field>
+        <field name="model">am.loan_agreement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id" string="Employee name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_loan_agreement" model="ir.actions.act_window">
+        <field name="name">Bruikleen overeenkomsten</field>
+        <field name="res_model">am.loan_agreement</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_send_loan_agreement" model="ir.actions.server">
+        <field name="name">Versturen bruikleen overeenkomst</field>
+        <field name="model_id" ref="model_am_loan_agreement"/>
+        <field name="binding_model_id" ref="asset_management.model_am_loan_agreement"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_send_report_by_email()
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_loan_agreement"
+        name="Bruikleen overeenkomsten"
+        sequence="15"
+        action="action_loan_agreement"
+        groups="group_asset_user"
+        parent="menu_asset_management_root"
+    />
+</odoo>

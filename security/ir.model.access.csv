@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_am_asset_category,access.am.asset_category,model_am_asset_category,group_asset_user,1,0,0,0
+access_am_asset_category_manager,access.am.asset_category.manager,model_am_asset_category,group_asset_manager,1,1,1,1
+access_am_device,access.am.device,model_am_device,group_asset_user,1,0,0,0
+access_am_device_manager,access.am.device.manager,model_am_device,group_asset_manager,1,1,1,1
+access_am_asset,access.am.asset,model_am_asset,group_asset_user,1,0,0,0
+access_am_asset_manager,access.am.asset.manager,model_am_asset,group_asset_manager,1,1,1,1
+access_am_option,access.am.option,model_am_option,group_asset_user,1,0,0,0
+access_am_option_manager,access.am.option.manager,model_am_option,group_asset_manager,1,1,1,1
+access_am_loan_agreement,access.am.loan_agreement,model_am_loan_agreement,group_asset_user,1,0,0,0
+access_am_loan_agreement_manager,access.am.loan_agreement.manager,model_am_loan_agreement,group_asset_manager,1,1,1,1
+access_am_loan_agreement_line,access.am.loan_agreement_line,model_am_loan_agreement_line,group_asset_user,1,0,0,0
+access_am_loan_agreement_line_manager,access.am.loan_agreement_line.manager,model_am_loan_agreement_line,group_asset_manager,1,1,1,1

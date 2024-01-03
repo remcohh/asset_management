@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_asset_form" model="ir.ui.view">
+        <field name="name">asset.form</field>
+        <field name="model">am.asset</field>
+        <field name="arch" type="xml">
+            <form string="Category">
+                <sheet>
+                    <Header>
+                        <h2>Apparaat registratie</h2>
+                    </Header>
+                    <group>
+                        <field name="category_name" invisible="1" />
+                        <field name="device_id" />
+                        <field name="serial" />
+                        <field name="imei_number" attrs="{'invisible': ['|',('category_name', '=', 'Laptop'),('category_name', '=', False)]}"/>
+                        <field name="phone_number"  attrs="{'invisible': ['|',('category_name', '=', 'Laptop'),('category_name', '=', False)]}" />
+                        <field name="nb_number" attrs="{'invisible': ['|',('category_name', '=', 'Phone'),('category_name', '=', False)]}" />
+                        <field name="employee_id" />
+                        <field name="options" widget="many2many_tags" />
+                        <field name="loan_agreement_id" />
+                    </group>
+                    <field name="remarks" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_asset_tree" model="ir.ui.view">
+        <field name="name">asset.tree</field>
+        <field name="model">am.asset</field>
+        <field name="arch" type="xml">
+            <tree string="asset">
+                <field name="device_id" />
+                <field name="serial" />
+                <field name="employee_id" />
+                <field name="loan_agreement_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_asset_search" model="ir.ui.view">
+        <field name="name">asset.search</field>
+        <field name="model">am.asset</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id" string="Employee name" />
+                <field name="device_id" string="Device type or brand" filter_domain="['|',('device_id.model_name', 'ilike', self),('device_id.brand', 'ilike', self)]"/>
+                <filter string="Laptops" name="filter_laptop"
+                domain="[('device_id.category_id.name', '=', 'Laptop')]" />
+                <filter string="Telefoons" name="filter_phone"
+                domain="[('device_id.category_id.name', '=', 'Telefoon')]" />
+                <filter string="Geen gebruikersovereenkomst" name="no_loan_agreement"
+                domain="[('loan_agreement_id', '=', None)]" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_asset_assets" model="ir.actions.act_window">
+        <field name="name">Apparatuur</field>
+        <field name="res_model">am.asset</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_create_loan_agreement" model="ir.actions.server">
+        <field name="name">Aanmaken bruikleen overeenkomst</field>
+        <field name="model_id" ref="model_am_asset"/>
+        <field name="binding_model_id" ref="asset_management.model_am_asset"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_create_loan_agreement()
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_assets_assets"
+        name="Apparatuur"
+        sequence="10"
+        action="action_asset_assets"
+        groups="group_asset_user"
+        parent="menu_asset_management_root"
+    />
+
+</odoo>

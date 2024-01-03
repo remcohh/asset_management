@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="action_report_asset" model="ir.actions.report">
+        <field name="name">Bruikleen overeenkomst</field>
+        <field name="model">am.loan_agreement</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">asset_management.asset_doc</field>
+        <field name="report_file">asset_management.asset_doc</field>
+        <field name="print_report_name">'Asset document - %s' % (object.employee_id)</field>
+        <field name="binding_model_id" ref="model_am_loan_agreement" />
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

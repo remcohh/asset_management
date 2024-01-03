@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_category_tree" model="ir.ui.view">
+        <field name="name">category.tree</field>
+        <field name="model">am.asset_category</field>
+        <field name="arch" type="xml">
+            <tree string="Category" editable="bottom">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_asset_categories" model="ir.actions.act_window">
+        <field name="name">Asset Categories</field>
+        <field name="res_model">am.asset_category</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem
+        id="menu_assets_categories"
+        name="Configuratie categorieen"
+        sequence="40"
+        action="action_asset_categories"
+        groups="group_asset_user"
+        parent="menu_assets_config"
+    />
+</odoo>

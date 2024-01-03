@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_phone_option_tree" model="ir.ui.view">
+        <field name="name">am.phone_option.tree</field>
+        <field name="model">am.phone_option</field>
+        <field name="arch" type="xml">
+            <tree string="phone_options" editable="bottom">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_phone_option" model="ir.actions.act_window">
+        <field name="name">Telefoon opties</field>
+        <field name="res_model">am.phone_option</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem
+        id="menu_assets_phone_options"
+        name="Telefoon opties"
+        sequence="56"
+        action="action_phone_option"
+        groups="group_asset_user"
+        parent="menu_assets_config"
+    />
+</odoo>
