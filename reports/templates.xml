@@ -37,7 +37,7 @@
                                     height="120" width="120" />
                             </td>
                             <td>
-                                <h1>Bruikleen overeenkomst ICT-apparatuur</h1>
+                                <h1>Loan agreement ICT equipment</h1>
                             </td>
                         </tr>
                     </table>
@@ -243,9 +243,9 @@
                     <p>
                         <table class="data-table">
                             <tr>
-                                <th>Apparatuur</th>
+                                <th>Equipment</th>
                                 <th colspan="2">Gegevens</th>
-                                <th>Accessoires.</th>
+                                <th>Accessoires</th>
                             </tr>
                             <t t-foreach="doc.loan_agreement_lines" t-as="line">
                                 <tr>

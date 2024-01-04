@@ -5,18 +5,18 @@ class Asset(models.Model):
     _name = 'am.asset'
     _description = 'Asset Model'
     _rec_name = 'device_id'
-    device_id = fields.Many2one('am.device', string='Apparaat')
-    employee_id = fields.Many2one('hr.employee', string='Huidige medewerker')
+    device_id = fields.Many2one('am.device', string='Configuration')
+    employee_id = fields.Many2one('hr.employee', string='Current employee')
     loan_agreement_id = fields.Many2one(
-        'am.loan_agreement', string='Gekoppeld aan gebruikersovereenkomst')
-    serial = fields.Char(string='Serienummer')
-    options = fields.Many2many('am.option', string='Opties')
-    imei_number = fields.Char(string='IMEI nummer')
-    phone_number = fields.Char(string='Telefoon nummer')
-    nb_number = fields.Char(string='NB nummer')
-    remarks = fields.Html(string='Opmerkingen')
+        'am.loan_agreement', string='Linked to loan agreement')
+    serial = fields.Char(string='Serial number')
+    options = fields.Many2many('am.option', string='Options')
+    imei_number = fields.Char(string='IMEI number')
+    phone_number = fields.Char(string='Phone number')
+    nb_number = fields.Char(string='NB number')
+    remarks = fields.Html(string='Remarks')
     category_name = fields.Char(
-        string='Apparaat categorie', related='device_id.category_id.name')
+        string='Device category', related='device_id.category_id.name')
     options_str = fields.Char()
     
     def action_create_loan_agreement(self):

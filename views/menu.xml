@@ -1,12 +1,12 @@
 <odoo>
     <menuitem
         id="menu_asset_management_root"
-        name="Beheer apparatuur"
+        name="Manage equipment SSC"
         sequence="10" />
 
     <menuitem
         id="menu_assets_config"
-        name="Configuratie"
+        name="Configuration"
         groups="group_asset_manager"
         sequence="100"
         parent="menu_asset_management_root" />

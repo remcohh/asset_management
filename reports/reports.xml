@@ -2,7 +2,7 @@
 
 <odoo>
     <record id="action_report_asset" model="ir.actions.report">
-        <field name="name">Bruikleen overeenkomst</field>
+        <field name="name">Loan agreement</field>
         <field name="model">am.loan_agreement</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">asset_management.asset_doc</field>

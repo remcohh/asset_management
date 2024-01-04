@@ -7,7 +7,7 @@
             <form string="Category">
                 <sheet>
                     <Header>
-                        <h2>Apparaat registratie</h2>
+                        <h2>Equipment registration</h2>
                     </Header>
                     <group>
                         <field name="category_name" invisible="1" />
@@ -48,22 +48,22 @@
                 <field name="device_id" string="Device type or brand" filter_domain="['|',('device_id.model_name', 'ilike', self),('device_id.brand', 'ilike', self)]"/>
                 <filter string="Laptops" name="filter_laptop"
                 domain="[('device_id.category_id.name', '=', 'Laptop')]" />
-                <filter string="Telefoons" name="filter_phone"
+                <filter string="Phones" name="filter_phone"
                 domain="[('device_id.category_id.name', '=', 'Telefoon')]" />
-                <filter string="Geen gebruikersovereenkomst" name="no_loan_agreement"
+                <filter string="No loan agreement" name="no_loan_agreement"
                 domain="[('loan_agreement_id', '=', None)]" />
             </search>
         </field>
     </record>
 
     <record id="action_asset_assets" model="ir.actions.act_window">
-        <field name="name">Apparatuur</field>
+        <field name="name">Equipment</field>
         <field name="res_model">am.asset</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <record id="action_create_loan_agreement" model="ir.actions.server">
-        <field name="name">Aanmaken bruikleen overeenkomst</field>
+        <field name="name">Create loan agreement</field>
         <field name="model_id" ref="model_am_asset"/>
         <field name="binding_model_id" ref="asset_management.model_am_asset"/>
         <field name="binding_view_types">list</field>
@@ -75,7 +75,7 @@
 
     <menuitem
         id="menu_assets_assets"
-        name="Apparatuur"
+        name="Equipment"
         sequence="10"
         action="action_asset_assets"
         groups="group_asset_user"

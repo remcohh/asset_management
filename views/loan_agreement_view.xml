@@ -7,14 +7,14 @@
             <form string="Category">
                 <sheet>
                     <div>
-                        <h2>Bruikleen overeenkomst</h2>
+                        <h2>Loan agreement</h2>
                     </div>
                     <group>
                         <field name="employee_id" />
                         <field name="date" />
                     </group>
                     <notebook>
-                        <page string="Apparaten">
+                        <page string="Devices">
                             <field name="loan_agreement_lines">
                                 <tree create="false" edit="false">
                                     <field name="asset_id" />
@@ -53,7 +53,7 @@
     </record>
 
     <record id="action_loan_agreement" model="ir.actions.act_window">
-        <field name="name">Bruikleen overeenkomsten</field>
+        <field name="name">Loan agreements</field>
         <field name="res_model">am.loan_agreement</field>
         <field name="view_mode">tree,form</field>
     </record>
@@ -71,7 +71,7 @@
 
     <menuitem
         id="menu_loan_agreement"
-        name="Bruikleen overeenkomsten"
+        name="Loan agreements"
         sequence="15"
         action="action_loan_agreement"
         groups="group_asset_user"

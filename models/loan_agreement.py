@@ -7,9 +7,9 @@ class LoanAgreement(models.Model):
     _description = 'Loan agreement'
     _rec_name = 'rec_name'
     rec_name = fields.Char(compute='_compute_rec_name', store=True)
-    employee_id = fields.Many2one('hr.employee', string='Gebruiker')
-    date = fields.Date(string='Datum', default=fields.Date.today)
-    remarks=fields.Html(string='Opmerkingen')
+    employee_id = fields.Many2one('hr.employee', string='Employee')
+    date = fields.Date(string='Date', default=fields.Date.today)
+    remarks=fields.Html(string='Remarks')
     loan_agreement_lines = fields.One2many('am.loan_agreement_line', 'loan_agreement_id', string='Loan agreement lines', ondelete='cascade' )\
         
     @api.depends('date', 'employee_id')

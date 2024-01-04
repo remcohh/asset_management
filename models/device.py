@@ -5,8 +5,8 @@ class Device(models.Model):
     _description = 'Device Model'
     _rec_name = 'rec_name'
     rec_name = fields.Char(compute='_compute_fk_label', store=False) 
-    category_id = fields.Many2one('am.asset_category', string='Apparaat categorie')
-    brand = fields.Char(string='Merk')
+    category_id = fields.Many2one('am.asset_category', string='Device category')
+    brand = fields.Char(string='Brand')
     model_name = fields.Char(string='Type')
     
     @api.depends('category_id')

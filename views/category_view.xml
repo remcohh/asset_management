@@ -11,14 +11,14 @@
     </record>
 
     <record id="action_asset_categories" model="ir.actions.act_window">
-        <field name="name">Asset Categories</field>
+        <field name="name">Equipment categories</field>
         <field name="res_model">am.asset_category</field>
         <field name="view_mode">tree</field>
     </record>
 
     <menuitem
         id="menu_assets_categories"
-        name="Configuratie categorieen"
+        name="Configuration categories"
         sequence="40"
         action="action_asset_categories"
         groups="group_asset_user"

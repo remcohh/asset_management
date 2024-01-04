@@ -29,14 +29,14 @@
     </record>
 
     <record id="action_device" model="ir.actions.act_window">
-        <field name="name">Devices</field>
+        <field name="name">Configurations</field>
         <field name="res_model">am.device</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem
         id="menu_assets_devices"
-        name="Configuraties"
+        name="Configurations"
         sequence="50"
         action="action_device"
         groups="group_asset_user"
